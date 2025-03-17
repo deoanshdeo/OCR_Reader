@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.light {
+    background: linear-gradient(135deg, #2c2f54 0%, #4a2b5a 100%);
+    color: #f0f4f8; /* Light text */
+}
+
+.dark {
+    background: linear-gradient(135deg, #2c2f54 0%, #4a2b5a 100%);
+    color: #f0f4f8; /* Consistent light text for contrast */
+}
+
+/* Glassmorphism with Glow */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(107, 78, 140, 0.5); /* Soft purple */
+    box-shadow: 0 4px 15px rgba(107, 78, 140, 0.2), inset 0 0 5px rgba(212, 160, 23, 0.3); /* Purple and gold */
+    border-radius: 15px; /* Match screenshot */
+    overflow: hidden;
+}
+
+/* Ethereal Glow */
+.ethereal-glow {
+    transition: all 0.3s ease-in-out;
+}
+
+.ethereal-glow:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 20px rgba(107, 78, 140, 0.8), 0 0 10px rgba(212, 160, 23, 0.7);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px rgba(107, 78, 140, 0.8), 0 0 10px rgba(212, 160, 23, 0.7); }
+    50% { box-shadow: 0 0 30px rgba(107, 78, 140, 1), 0 0 15px rgba(212, 160, 23, 0.9); }
+    100% { box-shadow: 0 0 20px rgba(107, 78, 140, 0.8), 0 0 10px rgba(212, 160, 23, 0.7); }
+}
+
+/* Input Focus */
+.input-neon:focus {
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(107, 78, 140, 0.8), 0 0 8px rgba(212, 160, 23, 0.7);
+}
+
+/* Visible Particle Background */
+.bg-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-particles::before,
+.bg-particles::after,
+.bg-particles::nth-child(3),
+.bg-particles::nth-child(4) {
+    content: '';
+    position: absolute;
+    background: rgba(212, 160, 23, 0.2); /* Gold particles with higher opacity */
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+    opacity: 0.6; /* Ensure visibility */
+}
+
+.bg-particles::before {
+    width: 10px;
+    height: 10px;
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.bg-particles::after {
+    width: 6px;
+    height: 6px;
+    top: 70%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+.bg-particles::nth-child(3) {
+    width: 8px;
+    height: 8px;
+    top: 40%;
+    left: 70%;
+    animation-delay: 10s;
+    background: rgba(177, 156, 217, 0.2); /* Soft purple */
+}
+
+.bg-particles::nth-child(4) {
+    width: 5px;
+    height: 5px;
+    top: 10%;
+    right: 20%;
+    animation-delay: 15s;
+    background: rgba(212, 160, 23, 0.2);
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(20px, 20px) scale(1.2); opacity: 0.8; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+}
+
+/* Image Paste Area */
+.image-paste-area {
+    border: 2px dashed rgba(107, 78, 140, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.image-paste-area:hover {
+    border-color: rgba(212, 160, 23, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.image-paste-area.dragover {
+    border-color: rgba(212, 160, 23, 1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Popup Animation */
+.popup-enter {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.popup-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.popup-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup-exit-active {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+/* New Addition: Neon Shadow on Hover (Suggested Change) */
+.hover\:shadow-neon:hover {
+    box-shadow: 0 0 15px rgba(107, 78, 140, 0.8), 0 0 30px rgba(212, 160, 23, 0.5);
+}
+
+/* New Addition: Popup Content Styling (Suggested Change) */
+/* Since your popup content already uses whitespace-pre-wrap, we'll just ensure consistency */
+.popup-content {
+    background: rgba(17, 24, 39, 0.9); /* bg-gray-900 equivalent */
+    padding: 12px;
+    border-radius: 8px;
+    max-height: 240px; /* max-h-60 */
+    overflow-y: auto;
+    border: 1px solid rgba(107, 78, 140, 0.3); /* Match glass border */
+    box-shadow: inset 0 0 5px rgba(212, 160, 23, 0.2); /* Subtle inner glow */
+}
