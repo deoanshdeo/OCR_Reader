@@ -323,7 +323,6 @@ def ocr_process(text, file, lang='en'):
             logger.info(f"Processing file with mimetype: {file.mimetype}")
             file_content = file.read()
             images = []
-
             # Handle different file types
             if file.mimetype and file.mimetype.startswith('image'):
                 images = [Image.open(io.BytesIO(file_content)).convert("RGB")]
