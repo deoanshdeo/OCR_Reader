@@ -5,13 +5,13 @@ import logging
 import pytesseract
 import easyocr
 from pdf2image import convert_from_bytes
-import comtypes.client
+#import comtypes.client
 import os
 import numpy as np
 import cv2
 
 # Specify Tesseract path explicitly
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -24,19 +24,19 @@ model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-printed'
 # Initialize EasyOCR reader (default to English, expandable for multi-language)
 reader = easyocr.Reader(['en'])  # Add more languages as needed (e.g., ['en', 'hi', 'zh'])
 
-def convert_doc_to_pdf(doc_path):
-    """Convert DOC/DOCX to PDF on Windows using comtypes."""
-    try:
-        word = comtypes.client.CreateObject('Word.Application')
-        doc = word.Documents.Open(doc_path)
-        pdf_path = doc_path.replace('.doc', '.pdf').replace('.docx', '.pdf')
-        doc.SaveAs(pdf_path, FileFormat=17)  # 17 is PDF format
-        doc.Close()
-        word.Quit()
-        return pdf_path
-    except Exception as e:
-        logger.error(f"DOC to PDF conversion failed: {str(e)}")
-        raise Exception(f"DOC to PDF conversion failed: {str(e)}")
+# def convert_doc_to_pdf(doc_path):
+#     """Convert DOC/DOCX to PDF on Windows using comtypes."""
+#     try:
+#         word = comtypes.client.CreateObject('Word.Application')
+#         doc = word.Documents.Open(doc_path)
+#         pdf_path = doc_path.replace('.doc', '.pdf').replace('.docx', '.pdf')
+#         doc.SaveAs(pdf_path, FileFormat=17)  # 17 is PDF format
+#         doc.Close()
+#         word.Quit()
+#         return pdf_path
+#     except Exception as e:
+#         logger.error(f"DOC to PDF conversion failed: {str(e)}")
+#         raise Exception(f"DOC to PDF conversion failed: {str(e)}")
 
 def preprocess_image(image, for_tesseract=False):
     """Preprocess the image adaptively for all text types."""
@@ -148,14 +148,8 @@ def ocr_process(text, file, lang='en'):
             elif file.mimetype == 'application/pdf':
                 images = convert_from_bytes(file_content)
             elif file.mimetype in ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']:
-                temp_path = "temp_doc_file"
-                with open(temp_path, 'wb') as f:
-                    f.write(file_content)
-                pdf_path = convert_doc_to_pdf(temp_path)
-                with open(pdf_path, 'rb') as f:
-                    images = convert_from_bytes(f.read())
-                os.remove(temp_path)
-                os.remove(pdf_path)
+                logger.error("DOC/DOCX files are not supported yet in this version of our Pilot project")
+
             else:
                 try:
                     images = [Image.open(io.BytesIO(file_content)).convert("RGB")]
