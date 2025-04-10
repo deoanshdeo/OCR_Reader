@@ -3,7 +3,7 @@
 Welcome to the **OCR Reader Backend**, a powerful Flask-based application designed to handle Optical Character Recognition (OCR) and text translation. This backend serves as the core processing engine for extracting text from images and PDFs, detecting code, and translating content across multiple languages using cutting-edge machine learning models.
 
 ## Overview
-Built with Python and Flask, the OCR Reader Backend integrates advanced libraries like `pytesseract`, `EasyOCR`, and `Transformers` (TrOCR and M2M100) to deliver high-accuracy text extraction and translation. It is modular, extensible, and optimized for tasks such as document digitization, multilingual support, and code recognition from visual inputs.
+Built with Python and Flask, the OCR Reader Backend integrates advanced libraries like `pytesseract`, `EasyOCR`, and `Transformers` (TrOCR and [M2M100](https://huggingface.co/facebook/m2m100_418M)) to deliver high-accuracy text extraction and translation. It is modular, extensible, and optimized for tasks such as document digitization, multilingual support, and code recognition from visual inputs.
 
 * **Tech Stack**: Python, Flask, OpenCV, Transformers, EasyOCR, pytesseract
 * **Key Features**: Multi-engine OCR, code detection, multilingual translation, robust error handling
