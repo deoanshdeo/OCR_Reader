@@ -60,13 +60,33 @@ Installation
     ```
     The backend will be accessible at `http://0.0.0.0:500`
 
+## API Endpoints
 
+- POST `/process`
+ - Description: Process text or files (image/PDFs) for OCR or translation.
+ - Parameters:
+   * `text` (string, optional): Input text to process.
+   * `file` (file, optional): Uploaded image or PDF file.
+   * `option` (string, default: `ocr`): Choose `ocr` or `translate`.
+   * `source_lang` (string, default: `auto`):Source language (e.g., `en`, `hi`, `fr`).
+   * `target_lang` (string, default: `en`): Target language (e.g., `en`, `hi`, `fr`).
 
+- Response: JSON object with `result` or `error` key.
 
+## Features
 
+- **Multi-Engine OCR**: Utilizes Tesseract, EasyOCR, and TrOCR for versatile text extraction.
+- **Code Detection**: Optimized preprocessing and post-processing for recognizing code snippets.
+- **Multilingual** Support: Supports languages like English, French, German, Hindi, and more.
+- **Translation**: Powered by the M2M100 model for accurate multilingual translation.
+- **Error Handling**: Includes logging and fallback mechanisms for reliability.
 
+## Contact
 
-
+* Author: Deoansh Deo
+* Email: [deoanshdeo@gmail.com](mailto:deoanshdeo@gmail.com) [![Email](https://img.shields.io/badge/-Email-red?style=flat&logo=gmail&logoColor=white)](mailto:deoanshdeo@gmail.com)
+* GitHub: [github.com/deoanshdeo](https://github.com/deoanshdeo) [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github&logoColor=white)](https://github.com/deoanshdeo)
+* LinkedIn: [linkedin.com/in/deoansh-deo-b0456922a](https://www.linkedin.com/in/deoansh-deo-b0456922a) [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/deoansh-deo-b0456922a)
 
 
 
