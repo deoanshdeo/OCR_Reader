@@ -87,7 +87,14 @@ Follow these steps to set up and run the project locally.
       ```
       sudo apt install tesseract-ocr-eng tesseract-ocr-hin
       ```
-  
+-  Verify Installation
+    ```
+     tesseract --version
+    ```
+- Locate the Tesseract executable:
+    ```
+     which tesseract
+    ```
 
 
 
