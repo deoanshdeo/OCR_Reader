@@ -75,15 +75,15 @@ Follow these steps to set up and run the project locally.
          ```
          sudo apt install tesseract-ocr
        ```
-       This installs the main Tesseract OCR engine, which provides the core functionality for optical character recognition.
+       This installs the main `Tesseract OCR engine`, which provides the core functionality for optical character recognition.
      -  Install language data packages.
          ```
         sudo apt install tesseract-ocr-eng
         sudo apt install tesseract-ocr-hin
         ```
         These commands install specific language data for Tesseract:
-         - tesseract-ocr-eng: English language support
-         - tesseract-ocr-hin: Hindi language support
+         - `tesseract-ocr-eng`: English language support
+         - `tesseract-ocr-hin`: Hindi language support
         You can install these simultaneously with:
            ```
            sudo apt install tesseract-ocr-eng tesseract-ocr-hin
@@ -146,10 +146,10 @@ Follow these steps to set up and run the project locally.
 
 ## Contact
 
-* Author: Deoansh Deo
-* Email: [deoanshdeo@gmail.com](mailto:deoanshdeo@gmail.com) [![Email](https://img.shields.io/badge/-Email-red?style=flat&logo=gmail&logoColor=white)](mailto:deoanshdeo@gmail.com)
-* GitHub: [github.com/deoanshdeo](https://github.com/deoanshdeo) [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github&logoColor=white)](https://github.com/deoanshdeo)
-* LinkedIn: [linkedin.com/in/deoansh-deo-b0456922a](https://www.linkedin.com/in/deoansh-deo-b0456922a) [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/deoansh-deo-b0456922a)
+* **Author**: Deoansh Deo
+* **Email**: [deoanshdeo@gmail.com](mailto:deoanshdeo@gmail.com) [![Email](https://img.shields.io/badge/-Email-red?style=flat&logo=gmail&logoColor=white)](mailto:deoanshdeo@gmail.com)
+* **GitHub**: [github.com/deoanshdeo](https://github.com/deoanshdeo) [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github&logoColor=white)](https://github.com/deoanshdeo)
+* **LinkedIn**: [linkedin.com/in/deoansh-deo-b0456922a](https://www.linkedin.com/in/deoansh-deo-b0456922a) [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/deoansh-deo-b0456922a)
 
 ## Acknowledgements
 
