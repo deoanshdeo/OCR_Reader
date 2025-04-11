@@ -63,8 +63,9 @@ Follow these steps to set up and run the project locally.
   
 - ### Installation:
 1. Clone the Repository
-- ```
-  https://github.com/deoanshdeo/OCR_Reader.git
+    ```
+    https://github.com/deoanshdeo/OCR_Reader.git
+    ```
 2. Download and install the Tesseract OCR for the image-extraction feature
 - You can make use of the following steps for this:
 - Update package lists:
