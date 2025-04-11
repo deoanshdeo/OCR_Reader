@@ -80,7 +80,13 @@ Follow these steps to set up and run the project locally.
    sudo apt install tesseract-ocr-eng
    sudo apt install tesseract-ocr-hin
    ```
-  
+   These commands install specific language data for Tesseract:
+    - tesseract-ocr-eng: English language support
+    - tesseract-ocr-hin: Hindi language support
+   You can install these simultaneously with:
+      ```
+      sudo apt install tesseract-ocr-eng tesseract-ocr-hin
+      ```
   
 
 
