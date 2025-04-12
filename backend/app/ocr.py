@@ -1,3 +1,8 @@
+'''
+This file is the brain behind turning images (e.g., Scanned, documents or screenshots)
+into text we can read and use.
+'''
+
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 from PIL import Image, ImageEnhance, ImageOps
 import io
@@ -10,10 +15,11 @@ import numpy as np
 import cv2
 import re
 
-# Specify Tesseract path explicitly
+# This one is default for Ubuntu users, but for the people using Windows, they need to configure this once.
 pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 # Set up logging
+# This helps track the flow of the program.
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -25,13 +31,14 @@ model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-printed'
 latin_reader = easyocr.Reader(['en', 'fr', 'de'], gpu=False)  # For Latin-script languages
 devanagari_reader = easyocr.Reader(['hi', 'en'], gpu=False)  # For Devanagari-script languages (Hindi + English)
 
+# This checks if an image has code, so we treat it differently
 def is_code_image(image):
-    """Detect if the image likely contains code based on patterns."""
+    """In this part, we try to detect whether the screenshot or the image that has been taken contains CODING SNIPPET or not"""
     try:
         # Preprocess lightly for detection
         image = preprocess_image(image, for_tesseract=True)
         text = pytesseract.image_to_string(image, config="--psm 6 --oem 3 -l eng")
-        # Look for code-like patterns
+        # Looks for code-like patterns
         code_indicators = ['def ', 'if ', 'try:', '# ', ' = ', '(', ')', '{', '}']
         is_code = any(indicator in text for indicator in code_indicators)
         logger.info(f"Code detection result: {is_code}")
@@ -310,6 +317,7 @@ def merge_ocr_results(results):
     logger.info(f"Merged OCR result: {merged_text[:100]}...")
     return merged_text
 
+# The main function that decides how to process text and files.
 def ocr_process(text, file, lang='en'):
     """Robust OCR processing with multiple fallback methods."""
     try:

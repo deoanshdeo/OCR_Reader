@@ -1,3 +1,5 @@
+# This file sets up the "roads" our app uses to handle requests.
+
 from flask import Blueprint, request, jsonify
 from .ocr import ocr_process
 from .translate import translate_text
@@ -8,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 main = Blueprint('main', __name__)
 
+# This is where the requests made from the frontend get processed.
 @main.route('/process', methods=['POST'])
 def process():
     try:

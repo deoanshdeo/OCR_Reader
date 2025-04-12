@@ -1,4 +1,4 @@
-# translate.py
+# This file helps translate text from one language to another.
 import torch
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 from langdetect import detect
@@ -7,6 +7,8 @@ import os
 
 # Ensure dependencies are installed
 required_packages = ['torch', 'transformers', 'langdetect', 'unidecode', 'indic-transliteration']
+
+# Checks for all the tools we need and installs them if they're missing.
 for package in required_packages:
     try:
         __import__(package)
@@ -54,6 +56,7 @@ def transliterate_text(text, source_lang):
         logger.error(f"Transliteration failed: {str(e)}")
         return text
 
+# Converts Hindi written in English letters (like "mujhe", etc.)
 def roman_to_devanagari(text):
     """Convert Romanized Hindi to Devanagari script with normalization."""
     try:
