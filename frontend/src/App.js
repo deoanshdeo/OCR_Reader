@@ -1,3 +1,8 @@
+/*
+* This is the core component of the frontend.
+* It integrates the form, theme switcher, and dynamic background effects to deliver a user-friendly and visually polished Text & File Processor.
+*/
+
 import React, { useState } from 'react';
 import Form from './components/Form';
 import ThemeSwitch from './components/ThemeSwitch';

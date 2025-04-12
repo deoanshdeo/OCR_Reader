@@ -1,3 +1,5 @@
+// This is the popup that shows up after processing the requests from the frontend form / catching up any error in the processing.
+
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { FaCopy, FaTimes } from 'react-icons/fa';

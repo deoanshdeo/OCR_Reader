@@ -1,3 +1,5 @@
+// Welcome to the main form of my app! This is where users can type text, upload files and translate textx.
+
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import Popup from './Popup';

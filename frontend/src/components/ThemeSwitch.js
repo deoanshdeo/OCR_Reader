@@ -1,3 +1,5 @@
+//This little component is for switching theme.
+
 import React from 'react';
 
 function ThemeSwitch({ theme, toggleTheme }) {

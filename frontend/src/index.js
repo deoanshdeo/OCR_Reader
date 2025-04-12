@@ -1,3 +1,5 @@
+// Entry point for the React application. Initializes and renders the App component, establishing the Document & File Processing  interface for user interaction.
+
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
